@@ -16,11 +16,20 @@
             class="calc container-sm d-flex flex-column gap-4 bg-warning h-75 w-50 mt-5 rounded fs-4 p-4"
         >
             <div class="input-group d-flex flex-column">
+                <label for="name">Nom complet</label>
+                <input
+                    id="name"
+                    type="text"
+                    placeholder="Prénom et nom"
+                    class="rounded-pill border-0 p-2"
+                />
+            </div>
+            <div class="input-group d-flex flex-column">
                 <label for="firstNumber">Premier nombre</label>
                 <input
                     id="firstNumber"
                     type="number"
-                    class="rounded-5 border-0 p-2"
+                    class="rounded-pill border-0 p-2"
                 />
             </div>
             <div class="input-group d-flex flex-column">
@@ -28,7 +37,7 @@
                 <input
                     id="secondNumber"
                     type="number"
-                    class="rounded-5 border-0 p-2"
+                    class="rounded-pill border-0 p-2"
                 />
             </div>
             <div class="input-group d-flex flex-column">
@@ -36,8 +45,9 @@
                 <select
                     name="operation"
                     id="operation"
-                    class="rounded-5 border-0 p-2"
+                    class="rounded-pill border-0 p-2"
                 >
+                    <option selected>Selectioner une opération</option>
                     <option value="addition">Addition</option>
                     <option value="substraction">Soustraction</option>
                     <option value="multiplication">Multiplication</option>
@@ -52,10 +62,14 @@
             >
                 Calculer
             </button>
-            <div
-                id="result"
-                class="result d-flex justify-content-center fs-1"
-            ></div>
+            <div id="result" class="result d-flex align-items-center">
+                <div
+                    id="icon"
+                    class="rounded-circle bg-primary-subtle p-2 fs-2 text-center text-dark"
+                    style="width: 60px; height: 60px"
+                ></div>
+                <p id="resultText" class="m-2" style=""></p>
+            </div>
         </div>
 
         <script src="tp-methods.js"></script>
