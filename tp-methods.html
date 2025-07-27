@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+            crossorigin="anonymous"
+        />
+    </head>
+    <body>
+        <div
+            class="calc container-sm d-flex flex-column gap-4 bg-warning h-75 w-50 mt-5 rounded fs-4 p-4"
+        >
+            <div class="input-group d-flex flex-column">
+                <label for="firstNumber">Premier nombre</label>
+                <input
+                    id="firstNumber"
+                    type="number"
+                    class="rounded-5 border-0 p-2"
+                />
+            </div>
+            <div class="input-group d-flex flex-column">
+                <label for="secondNumber">Second nombre</label>
+                <input
+                    id="secondNumber"
+                    type="number"
+                    class="rounded-5 border-0 p-2"
+                />
+            </div>
+            <div class="input-group d-flex flex-column">
+                <label for="operation">Opération</label>
+                <select
+                    name="operation"
+                    id="operation"
+                    class="rounded-5 border-0 p-2"
+                >
+                    <option value="addition">Addition</option>
+                    <option value="substraction">Soustraction</option>
+                    <option value="multiplication">Multiplication</option>
+                    <option value="division">Division</option>
+                    <option value="modulo">Modulo</option>
+                </select>
+            </div>
+            <button
+                id="calculer"
+                onclick="calculer()"
+                class="rounded bg-info border-0 p-2 text-white"
+            >
+                Calculer
+            </button>
+            <div
+                id="result"
+                class="result d-flex justify-content-center fs-1"
+            ></div>
+        </div>
+
+        <script src="tp-methods.js"></script>
+    </body>
+</html>

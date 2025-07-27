@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tp5-form-style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo"><a href="index-tp3.html">COURSES</a></div>
+        <nav class="nav-menu">
+            <a href="index-tp3.html">Acceuil</a>
+            <a href="create.html">Créer</a>
+            <a href="tp4-table.html">Liste</a>
+            <a href="tp5-form.html">Contact</a>
+        </nav>
+    </header>
+    
+    <h1>Contact</h1>
+    <form action="post" class="contact-form">
+        <div class="form-group">
+            <label for="civility">Civilité</label>
+            <label for="monsieur"><input id="monsieur" type="radio" name="civility">Monsieur</label>
+            <label for="madame"><input id="madame" type="radio" name="civility">Madame</label>
+        </div>
+        <div class="form-group">
+            <label for="firstName">Prénom</label>
+            <input id="firstName" type="text" name="firstName" placeholder="Entrez votre prénom">
+        </div>
+        <div class="form-group">
+            <label for="name">Nom</label>
+            <input id="name" type="text" name="name" placeholder="Entrez votre nom">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" placeholder="Entrez votre email">
+        </div>
+        <div class="form-group">
+            <label for="birthday">Date de naissance</label>
+            <input id="birthday" type="date" name="birthday" >
+        </div>
+        <div class="form-group">
+            <label for="user-msg">Saisissez votre message</label>
+            <textarea name="user-msg" id="user-msg" cols="50" rows="10"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="source">Comment nous avez-vous connu?</label>
+            <select name="source" id="source" >
+                <option value="Youtube"> Youtube</option>
+                <option value="Tiktok"> Tiktok</option>
+                <option value="Instagram"> Instagram</option>
+                <option value="Amis"> Amis</option>
+                <option value="LinkedIn"> LinkedIn</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="terms-conditions">
+                <input id="terms-conditions" type="checkbox" name="terms-conditions">
+                je ne souhaite pas recevoir d´informations, de bons plans, de cadeaux.
+            </label>
+        </div>
+        <button class="btn btn-submit" type="submit">Transmettre</button>
+    </form>
+
+</body>
+</html>
