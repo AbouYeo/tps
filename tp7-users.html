@@ -11,10 +11,34 @@
             crossorigin="anonymous"
         />
     </head>
-    <body onload="fetchUsers()">
-        <h1 id="title">Affichage des données dans un tableau</h1>
+    <body onload="showData()" class="container">
+        <h1 id="title" class="my-3">Affichage des données dans un tableau</h1>
+        <div
+            class="btn-group my-3"
+            role="group"
+            aria-label="Basic radio toggle button group"
+        >
+            <input
+                type="radio"
+                class="btn-check"
+                name="radio-affichage"
+                id="tableau"
+                autocomplete="off"
+                checked
+            />
+            <label class="btn btn-outline-primary" for="tableau">Tableau</label>
+
+            <input
+                type="radio"
+                class="btn-check"
+                name="radio-affichage"
+                id="grille"
+                autocomplete="off"
+            />
+            <label class="btn btn-outline-primary" for="grille">Grille</label>
+        </div>
         <div id="screen" class="">
-            <table class="table table-striped container">
+            <table class="table table-striped my-3">
                 <thead>
                     <tr>
                         <th class="bg-secondary text-light">Nom</th>
