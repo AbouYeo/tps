@@ -17,6 +17,9 @@ async function getUsers() {
         console.error("Erreur :", error);
     }
 }
+//fonction showData() sera appelée au chargement de la page
+//Elle surveille l´etat des radiosButtons tableau et grille
+//Et appelle la fonction dediée pour afficher les données au format souhaité
 function showData() {
     const selected = document.querySelector(
         'input[name="radio-affichage"]:checked'
