@@ -12,9 +12,8 @@
         />
     </head>
     <body onload="showData()" class="container">
-        <h1 id="title" class="my-3">Affichage des données dans un tableau</h1>
         <div
-            class="btn-group my-3"
+            class="btn-group my-3 position-sticky top-0 start-100"
             role="group"
             aria-label="Basic radio toggle button group"
         >
@@ -37,18 +36,11 @@
             />
             <label class="btn btn-outline-primary" for="grille">Grille</label>
         </div>
-        <div id="screen" class="">
-            <table class="table table-striped my-3">
-                <thead>
-                    <tr>
-                        <th class="bg-secondary text-light">Nom</th>
-                        <th class="bg-secondary text-light">Télephone</th>
-                        <th class="bg-secondary text-light">Email</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody-users"></tbody>
-            </table>
-        </div>
+
+        <h1 id="title" class="my-3">Affichage des données dans un tableau</h1>
+
+        <!--Section pour afficher les données-->
+        <div id="screen" class=""></div>
         <script src="tp7-users.js"></script>
     </body>
 </html>
