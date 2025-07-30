@@ -59,20 +59,18 @@ function showAsGrid(users) {
 }
 
 function showAsTable(data) {
-    let tableLines = "";
-    // const tBodyUsers = document.getElementById("tbody-users");
+    //Transformation des données à l´aide de map
+    //map prendra chacun des user de data, le transformera et l´ajoutera au tableau users
+    const users = data.map(
+        (user) =>
+            `<tr>
+                <td>${user.name}</td>
+                <td>${user.phone}</td>
+                <td>${user.email}</td>
+            </tr>`
+    );
 
-    let users = data;
-    for (index = 0; index < users.length; index++) {
-        let user = users[index];
-        let line = `<tr>
-                        <td>${user.name}</td>
-                        <td>${user.phone}</td>
-                        <td>${user.email}</td>
-                    </tr>`;
-        tableLines += line;
-    }
-
+    //Création du tableau pour acceuillir les données et les afficher
     let table = `
     <table class="table table-striped my-3">
         <thead>
@@ -82,16 +80,10 @@ function showAsTable(data) {
                 <th class="bg-secondary text-light">Email</th>
             </tr>
         </thead>
-        <tbody id="tbody-users">${tableLines}</tbody>
+        <tbody id="tbody-users">${users.join(" ")}</tbody>
     </table>`;
 
     screen.innerHTML = table;
 
     console.log(data);
 }
-
-/*function fetchUsers() {
-    fetch("https://jsonplaceholder.typicode.com/users")
-        .then((response) => handlResponse(response))
-        .then((data) => handleData(data));
-}*/
