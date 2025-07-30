@@ -12,7 +12,7 @@ async function getUsers() {
             "https://jsonplaceholder.typicode.com/users"
         );
         const users = await response.json();
-        return users; // ✅ ici aussi tu as ton tableau
+        return users;
     } catch (error) {
         console.error("Erreur :", error);
     }
@@ -35,6 +35,34 @@ function showData() {
         title.innerText = "Affichage des données dans une grille";
         getUsers().then((users) => {
             showAsGrid(users);
+        });
+    }
+}
+
+//filtre les données en fonction de la saisie de l´utilisateur et
+//Affiche avec les fonctions showAsTable() et showAsGrid()
+function search() {
+    const searchInput = document.getElementById("search-input");
+    const searchCriteria = searchInput.value.toLowerCase();
+
+    const selected = document.querySelector(
+        'input[name="radio-affichage"]:checked'
+    );
+
+    let filteredUsers;
+    if (selected.id == "tableau") {
+        getUsers().then((users) => {
+            filteredUsers = users.filter((user) => {
+                return user.name.toLowerCase().includes(searchCriteria);
+            });
+            showAsTable(filteredUsers);
+        });
+    } else {
+        getUsers().then((users) => {
+            filteredUsers = users.filter((user) => {
+                return user.name.toLowerCase().includes(searchCriteria);
+            });
+            showAsGrid(filteredUsers);
         });
     }
 }
