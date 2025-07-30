@@ -33,29 +33,27 @@ function showData() {
         getUsers().then((users) => {
             showAsGrid(users);
         });
-        console.log("Valeur sélectionnée : grille");
     }
 }
 
-function showAsGrid(users) {
-    let gridcells = ``;
-    let cell;
-    users.forEach((user) => {
-        cell = `
+function showAsGrid(data) {
+    //Transformation des données à l´aide de map
+    //map prendra chacun des user de data, le transformera et l´ajoutera au tableau users
+    const users = data.map(
+        (user) =>
+            `
             <div class="col border border-2 bg-info-subtle p-2">
                 <p class="fw-bold">${user.name}</p>
                 <p>${user.phone}</p>
                 <p>${user.email}</p>
             </div>
-            `;
-        gridcells += cell;
-    });
+            `
+    );
+
     screen.innerHTML = `
         <div class="container text-center">
-            <div class="row row-cols-2">${gridcells}</div>
+            <div class="row row-cols-2">${users.join(" ")}</div>
         </div>`;
-
-    console.log("Hello from affichage");
 }
 
 function showAsTable(data) {
@@ -84,6 +82,4 @@ function showAsTable(data) {
     </table>`;
 
     screen.innerHTML = table;
-
-    console.log(data);
 }
