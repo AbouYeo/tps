@@ -10,7 +10,10 @@ radioAffichage.forEach((element) => {
 const select = document.querySelector("#filter-category");
 select.addEventListener("change", search);
 
+//Recupérer le screen, pour laffichage des données
 const screen = document.getElementById("screen");
+
+//Fait la requête pour les données
 async function getUsers() {
     try {
         const response = await fetch(
@@ -64,6 +67,7 @@ function search() {
     }
 }
 
+//filtre les users par le nom complet
 function filterByName(searchCriteria) {
     const selected = document.querySelector(
         'input[name="radio-affichage"]:checked'
@@ -86,6 +90,7 @@ function filterByName(searchCriteria) {
     }
 }
 
+//Filtre les users par leur numéro de téléphone
 function filterByPhone(searchCriteria) {
     const selected = document.querySelector(
         'input[name="radio-affichage"]:checked'
@@ -108,6 +113,7 @@ function filterByPhone(searchCriteria) {
     }
 }
 
+//Filtre les users par leur adresse (le nom de rue)
 function filterByAddress(searchCriteria) {
     const selected = document.querySelector(
         'input[name="radio-affichage"]:checked'
@@ -134,6 +140,7 @@ function filterByAddress(searchCriteria) {
     }
 }
 
+//Affiche les données sous format de grille
 function showAsGrid(data) {
     //Transformation des données à l´aide de map
     //map prendra chacun des user de data, le transformera et l´ajoutera au tableau users
@@ -141,9 +148,13 @@ function showAsGrid(data) {
         (user) =>
             `
             <div class="col border border-2 bg-info-subtle p-2">
-                <p class="fw-bold">${user.name}</p>
+                <p>${user.id}</p>
+                <p class="fw-bold">
+                ${user.name}</p>
                 <p>${user.phone}</p>
                 <p>${user.email}</p>
+                <p>${user.company.name}</p>
+                <p>${user.address.street}</p>
             </div>
             `
     );
@@ -160,9 +171,12 @@ function showAsTable(data) {
     const users = data.map(
         (user) =>
             `<tr>
+                <td>${user.id}</td>
                 <td>${user.name}</td>
                 <td>${user.phone}</td>
                 <td>${user.email}</td>
+                <td>${user.company.name}</td>
+                <td>${user.address.street}</td>
             </tr>`
     );
 
@@ -171,9 +185,12 @@ function showAsTable(data) {
     <table class="table table-striped my-3">
         <thead>
             <tr>
+            <th class="bg-secondary text-light">Id</th>
                 <th class="bg-secondary text-light">Nom</th>
                 <th class="bg-secondary text-light">Télephone</th>
                 <th class="bg-secondary text-light">Email</th>
+                <th class="bg-secondary text-light">Compagnie</th>
+                <th class="bg-secondary text-light">Rue</th>
             </tr>
         </thead>
         <tbody id="tbody-users">${users.join(" ")}</tbody>
