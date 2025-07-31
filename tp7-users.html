@@ -12,40 +12,57 @@
         />
     </head>
     <body onload="showData()" class="container">
-        <div
-            class="btn-group my-3 position-sticky top-0 start-100"
-            role="group"
-            aria-label="Basic radio toggle button group"
-        >
-            <input
-                type="radio"
-                class="btn-check"
-                name="radio-affichage"
-                id="tableau"
-                autocomplete="off"
-                checked
-            />
-            <label class="btn btn-outline-primary" for="tableau">Tableau</label>
+        <div class="position-sticky top-0 d-flex flex-column">
+            <div
+                class="btn-group my-3 ms-auto"
+                role="group"
+                aria-label="Basic radio toggle button group"
+            >
+                <input
+                    type="radio"
+                    class="btn-check"
+                    name="radio-affichage"
+                    id="tableau"
+                    autocomplete="off"
+                    checked
+                />
+                <label class="btn btn-outline-primary" for="tableau"
+                    >Tableau</label
+                >
 
-            <input
-                type="radio"
-                class="btn-check"
-                name="radio-affichage"
-                id="grille"
-                autocomplete="off"
-            />
-            <label class="btn btn-outline-primary" for="grille">Grille</label>
-        </div>
+                <input
+                    type="radio"
+                    class="btn-check"
+                    name="radio-affichage"
+                    id="grille"
+                    autocomplete="off"
+                />
+                <label class="btn btn-outline-primary" for="grille"
+                    >Grille</label
+                >
+            </div>
 
-        <div class="input-group flex-nowrap">
-            <input
-                type="text"
-                class="form-control"
-                placeholder="Rechercher un utilisateur"
-                aria-label="Filtrer les utilisateur"
-                id="search-input"
-                onkeyup="search()"
-            />
+            <div class="input-group flex-nowrap">
+                <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Rechercher un utilisateur"
+                    aria-label="Filtrer les utilisateur"
+                    id="search-input"
+                    onkeyup="search()"
+                />
+                <select
+                    name="filterCategory"
+                    title="filter-category"
+                    id="filter-category"
+                    class="border rounded-end bg-secondary-subtle w-25"
+                >
+                    <option value="" disabled selected>Trier par ...</option>
+                    <option value="optName">Nom</option>
+                    <option value="optName">Phone</option>
+                    <option value="optName">Adresse</option>
+                </select>
+            </div>
         </div>
 
         <h1 id="title" class="my-3">Affichage des données dans un tableau</h1>
