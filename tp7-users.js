@@ -1,9 +1,14 @@
+//Recupérer le button switch (tableu | grille)  et ajouter un EventListener
 const radioAffichage = document.querySelectorAll(
     'input[name="radio-affichage"]'
 );
 radioAffichage.forEach((element) => {
     element.addEventListener("change", showData);
 });
+
+//Recupérer la liste de selection et ajouter un EventListener
+const select = document.querySelector("#filter-category");
+select.addEventListener("change", search);
 
 const screen = document.getElementById("screen");
 async function getUsers() {
@@ -44,11 +49,25 @@ function showData() {
 function search() {
     const searchInput = document.getElementById("search-input");
     const searchCriteria = searchInput.value.toLowerCase();
+    const selectedCategory = document.querySelector("#filter-category").value;
 
+    switch (selectedCategory) {
+        case "optName":
+            filterByName(searchCriteria);
+            break;
+        case "optPhone":
+            filterByPhone(searchCriteria);
+            break;
+        case "optAddress":
+            filterByAddress(searchCriteria);
+            break;
+    }
+}
+
+function filterByName(searchCriteria) {
     const selected = document.querySelector(
         'input[name="radio-affichage"]:checked'
     );
-
     let filteredUsers;
     if (selected.id == "tableau") {
         getUsers().then((users) => {
@@ -61,6 +80,54 @@ function search() {
         getUsers().then((users) => {
             filteredUsers = users.filter((user) => {
                 return user.name.toLowerCase().includes(searchCriteria);
+            });
+            showAsGrid(filteredUsers);
+        });
+    }
+}
+
+function filterByPhone(searchCriteria) {
+    const selected = document.querySelector(
+        'input[name="radio-affichage"]:checked'
+    );
+    let filteredUsers;
+    if (selected.id == "tableau") {
+        getUsers().then((users) => {
+            filteredUsers = users.filter((user) => {
+                return user.phone.toLowerCase().includes(searchCriteria);
+            });
+            showAsTable(filteredUsers);
+        });
+    } else {
+        getUsers().then((users) => {
+            filteredUsers = users.filter((user) => {
+                return user.phone.toLowerCase().includes(searchCriteria);
+            });
+            showAsGrid(filteredUsers);
+        });
+    }
+}
+
+function filterByAddress(searchCriteria) {
+    const selected = document.querySelector(
+        'input[name="radio-affichage"]:checked'
+    );
+    let filteredUsers;
+    if (selected.id == "tableau") {
+        getUsers().then((users) => {
+            filteredUsers = users.filter((user) => {
+                return user.address.street
+                    .toLowerCase()
+                    .includes(searchCriteria);
+            });
+            showAsTable(filteredUsers);
+        });
+    } else {
+        getUsers().then((users) => {
+            filteredUsers = users.filter((user) => {
+                return user.address.street
+                    .toLowerCase()
+                    .includes(searchCriteria);
             });
             showAsGrid(filteredUsers);
         });
