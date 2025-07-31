@@ -16,9 +16,7 @@ const screen = document.getElementById("screen");
 //Fait la requête pour les données
 async function getUsers() {
     try {
-        const response = await fetch(
-            "https://jsonplaceholder.typicode.com/users"
-        );
+        const response = await fetch("./data.json");
         const users = await response.json();
         return users;
     } catch (error) {
